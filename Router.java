@@ -1,10 +1,16 @@
-// routers can see their direct neighbors at startup, but not beyond, which is why they need to run the distanceVector protocol to learn about the rest of the network.
-// each router runs the distanceVector protocol. It has a list of all the routers in the network, and it sends its distance vector to all of its neighbors. 
-// It also receives distance vectors from its neighbors and updates its own distance vector accordingly. It also has a list of all the subnets in the network, and it uses the distance vector to determine the best path to each subnet. It also has a list of all the hosts in the network, and it uses the distance vector to determine the best path to each host.
+// routers can see their direct neighbors at startup, but not beyond, 
+// which is why they need to run the distanceVector protocol to learn about the rest of the network.
+// each router runs the distanceVector protocol. It has a list of all the routers in the network, 
+// and it sends its distance vector to all of its neighbors. 
+// It also receives distance vectors from its neighbors and updates its own distance vector accordingly. 
+// It also has a list of all the subnets in the network, and it uses the distance vector to determine the 
+// best path to each subnet. It also has a list of all the hosts in the network, and it uses the distance 
+//vector to determine the best path to each host.
 // DistanceVector class in here?? Or just a function that returns the distance vector?
 // map: key: subnet, value: overall distance (total of costs)
 // count only subnets, not routers in the "cost" (don't count the dest. subnet)
 // R1 to N4 = 1, R1 to N1, N2, and N3 = 0
+// enable multiple router instances
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

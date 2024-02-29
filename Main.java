@@ -13,8 +13,7 @@ public class Main {
             System.out.println("Router " + router.routerId + ": " + router.distanceVector);
         }
 
-        // Simulate the exchange of distance vectors
-        // In a real scenario, this would be triggered by changes in the network or at regular intervals
+        // Simulate the exchange of distance vectors       
         simulateDistanceVectorExchange(network);
 
         // After updates, print the updated distance vectors
@@ -41,9 +40,9 @@ public class Main {
 
     // Helper method to convert complex Route objects to simple distance vectors for
     // easy handling
-    private static Map<String, Integer> convertToSimpleDistanceVector(Map<String, Route> distanceVector) {
+    private static Map<String, Integer> convertToSimpleDistanceVector(Map<String, Router> distanceVector) {
         Map<String, Integer> simpleDistanceVector = new HashMap<>();
-        for (Map.Entry<String, Route> entry : distanceVector.entrySet()) {
+        for (Map.Entry<String, Router> entry : distanceVector.entrySet()) {
             simpleDistanceVector.put(entry.getKey(), entry.getValue().cost);
         }
         return simpleDistanceVector;
