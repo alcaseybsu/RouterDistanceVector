@@ -1,12 +1,11 @@
-# this config file is for Project 2
-
-#list subnets: (probably don't need this)
-N1
-N2
-N3
-N4
-N5
-N6
+R1:N1
+R1:N2
+R1:N3
+R2:N3
+R2:N4
+R3:N4
+R3:N5
+R3:N6
 
 #Routers (each person can use their own ipv4 address and a dfft port#)
 R1,10.222.3.14:3000

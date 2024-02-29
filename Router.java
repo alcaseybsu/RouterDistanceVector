@@ -27,7 +27,7 @@ public class Router {
     String routerId;    
     Map<String, String> directlyConnectedRouters = new HashMap<>(); // This should map neighbor ID to "IP:port"
     Map<String, Integer> directlyConnectedSubnets = new HashMap<>(); // Subnet and Cost
-    Map<String, Route> distanceVector = new HashMap<>(); // Subnet and Route (cost + next hop)
+    Map<String, Router> distanceVector = new HashMap<>(); // Subnet and Route (cost + next hop)
 
     public Router(String routerId) {
         this.routerId = routerId;
