@@ -1,7 +1,7 @@
 Task Allocation:  
 Router class - Mason  
-DistanceVector function (inside router class) - Cyarina  
-Parser - Adrianna 
+DistanceVector function (inside router class) - Cyarina   
+Parser - Adrianna  
 Main - Leah  
 
 Routers can see their direct neighbors at startup, but not beyond, which is why they need to run the distanceVector protocol to learn about the rest of the network.  
@@ -14,7 +14,7 @@ Has a list of all the subnets in the network, and uses the DV to determine the b
 Has a list of all the hosts in the network, and uses the DV to determine the best path to each host. 
 
 To implement:  
-Need Router class with Distance Veector protocol in it.  
+Need Router class with Distance Vector protocol in it.  
 Need a map with key: subnet, value: overall distance (total of costs).  
  
 Count only subnets, not routers in the "cost", and don't count the destination subnet.  
