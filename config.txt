@@ -1,23 +1,17 @@
-R1:N1
-R1:N2
-R1:N3
-R2:N3
-R2:N4
-R3:N4
-R3:N5
-R3:N6
+#config.txt
 
-#Routers (each person can use their own ipv4 address and a dfft port#)
-R1,10.222.3.14:3000
-R2,10.222.3.15:4000
-R3,10.222.3.16:5000
+# routers  - each person can put in their own ipv4 address
+# for debugging on your own, make them all "localhost"
+R1,localhost:3000
+R2,localhost:4000
+R3,localhost:5000
 
 
-#routers to routers
+# routers to routers
 R1:R2
 R2:R3
 
-#Routers to subnets
+# routers to subnets
 R1:N1.N2.N3
 R2:N3.N4
 R3:N4.N5.N6
