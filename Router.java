@@ -56,7 +56,7 @@ public class Router implements Runnable {
             Map<String, Integer> simplifiedDistanceVector = Main.convertToSimpleDistanceVector(modifiedDistanceVector);
             System.out.println("Router " + routerId + " DV to " + neighborId + ": " + simplifiedDistanceVector);
 
-            // extract neighbor IP address and port
+            // extracting neighbor IP address and port
             String[] parts = ipPortString.split(":");
             String ipAddress = parts[0];
             int port = Integer.parseInt(parts[1]);
@@ -133,7 +133,6 @@ public class Router implements Runnable {
             detectAndSendTriggeredUpdates(); // check for and handle significant changes after updating link cost
         }
     }
-    
 
     @Override
     public void run() {
