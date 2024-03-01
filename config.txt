@@ -1,6 +1,6 @@
 #config.txt
 
-# routers  - each person can put in their own ipv4 address
+# routers  - each person can put in their own IPv4 address
 # for debugging on your own, make them all "localhost"
 R1,localhost:3000
 R2,localhost:4000
