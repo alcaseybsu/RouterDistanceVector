@@ -1,0 +1,10 @@
+# R2 Configuration
+# Format: RouterID,IP:Port
+# Neighbors
+R1,localhost:3000
+R3,localhost:5000
+
+# Directly Connected Subnets
+# Format: Subnet,Cost
+N3,1
+N4,1
