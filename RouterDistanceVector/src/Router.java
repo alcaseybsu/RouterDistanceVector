@@ -1,9 +1,12 @@
+//Mason
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Router {
-
     //----------------------------------Main---------------------------------------
     public static void main(String[] args) throws UnknownHostException {
 
@@ -12,14 +15,43 @@ public class Router {
         String name = scanner.nextLine();
 
         System.out.println("Input Router IP Address:\n");
-        String IP = scanner.nextLine();
+        String address = scanner.nextLine();
 
         System.out.println("Input Router Port Number:\n");
-        int portnum = Integer.parseInt(scanner.nextLine());
+        int port = Integer.parseInt(scanner.nextLine());
 
-        GenerateRouter(name,IP,portnum);
+        GenerateRouter(name,address,port);
 
         System.out.println();
+    }
+    //-----------------------------------------------------------------------------
+    public static void LaunchRouter(String name, String IpAddress, int port){
+        //Generate Router
+        //GenerateRouter(name,IpAddress,port);
+
+            //Find Subnet neighbors
+        String startHeaderSubnet = "#Routers to subnets";
+        String endHeaderSubnet = "#End Routers to Subnets List";
+        List<String> subnetNeighbors = RouterParser.NeighborFinder(startHeaderSubnet, endHeaderSubnet,name);
+
+        String startHeaderRouter = "#Routers to Routers";
+        String endHeaderRouter = "#End Router to Router List";
+        List<String> routerNeighbors = RouterParser.NeighborFinder(startHeaderRouter, endHeaderRouter,name);
+
+        //Generate Initial distance Vector
+        //TODO
+                //distance to connections is always 0
+                //next hop is always itself for directly connected subnets
+        PrintData(subnetNeighbors, routerNeighbors, name);
+        //Subnet,distance vector,nextHop
+        //N1,0,R1
+        //N2,0,R1
+
+        //Find Router neighbors
+        //Send innitial distance vector to neighbors
+
+
+
     }
     //-----------------------------------------------------------------------------
 
@@ -37,40 +69,50 @@ public class Router {
     }
     //-----------------------------------------------------------------------------
 
-    //--------------Start---------------
-    public void start(){
-        CalcDistanceVector();
-        PrintData();
-    }
-    //-----------------------------------
-
     //-----------------------------Distance Vector----------------------------------
     public void CalcDistanceVector(){
-
+        //Should take 2 arguments, return distance vector
     }
     //------------------------------Display Data-------------------------------------
-    public void PrintData(){
-        //For each subnet in config file
-            //Count the number of subnets between this router and that subnet ++
+    public static void PrintData(List<String> subnetNeighbors, List<String> routerNeighbors, String name){
+        //ArrayList<Object> displayData = new ArrayList<>();
 
+//Subnet,distance vector,nextHop
+        //N1,0,R1
+        //N2,0,R1
+        //---------------------------------------
+        System.out.println("Distance vector data of router: " + name +".\n\n");
+        System.out.println("The format to display the distance vector from this router to each subnet is as follows:\n");
+        System.out.println("Current Router , Subnet , the distance vector between them , the next hop to reach that subnet.\n");
+        //---------------------------------------
+        //For each subnet in config file
+
+            //Count the number of subnets between this router and that subnet ++
+//
         //For each subnet in config file
             //Find the first (next hop) subnet to the
                 //destination subnet from this router
 
-        String format = "Distance Cost From " + this.name + " to " +
+        String format = "Distance Cost From " + name + " to " +
                          "Router in List: " + "CalcDistance Vector(name, otherName)";
     }
+    //--------------Start---------------
+    public void start(String name, String IpAddress, int Port){
+        LaunchRouter(name,IpAddress,Port);
+    }
+    //-----------------------------------
+
     //----------------------------Router Generation---------------------------------
     public static void GenerateRouter(String name, String IpAddress, int Port){
         try{
             Router router = new Router(name, IpAddress, Port);
-            router.start();
+            router.start(name,IpAddress,Port);
         }catch (UnknownHostException e){
             System.err.println("Router setup error: " + e.getMessage());
         }
     }
     //--------------------------------Next Hop--------------------------------------
-    public String NextHop(){
+    public String NextHop(String router){
         String routerName = this.name;
         //call parser
         String nextHop = "";
