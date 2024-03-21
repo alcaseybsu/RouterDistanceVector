@@ -3,7 +3,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO: Make this universal, not hard-coded, so that it works with other config files.
+//TODO: Make this universal, utilizing the Parser class, not hard-coded, so that it works with other config files.
 
 public static class DistanceVector {
 
