@@ -49,9 +49,6 @@ public class Router {
 
         //Find Router neighbors
         //Send innitial distance vector to neighbors
-
-
-
     }
     //-----------------------------------------------------------------------------
 
